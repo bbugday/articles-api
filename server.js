@@ -2,8 +2,8 @@ const logger = require('morgan');
 const express = require('express');
 const app = express();
 const authRoutes = require('./routes/authRoutes');
+const articleRoutes = require('./routes/articleRoutes');
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser } = require('./middlewares/authMiddleware');
 require('dotenv').config();
 
 //db
@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('*', checkUser);
 app.use(authRoutes);
+app.use('/articles', articleRoutes);
 
 app.listen(8080, () => console.log('Server Started'));
