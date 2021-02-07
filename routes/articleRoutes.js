@@ -4,6 +4,8 @@ const {requireAuth, checkUser} = require('../middlewares/authMiddleware');
 
 const router = Router();
 
+router.get('/', articleController.article_list);
 router.post('/create', requireAuth, checkUser, articleController.article_create);
+
 
 module.exports = router;
