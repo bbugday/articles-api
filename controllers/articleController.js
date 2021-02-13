@@ -18,6 +18,12 @@ module.exports.article_list = async (req, res) => {
     const articles = await Article.find();
     res.status(200).json(articles);
   } catch (error) {
-    res.status(500).json({message: err.message});
+    res.status(200).json({message: err.message});
   }
 };
+
+module.exports.article_detail = async (req, res) => {
+  res.status(200).json(res.article);
+};
+
+
