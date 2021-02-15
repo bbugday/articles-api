@@ -15,6 +15,9 @@ const articleSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true
+  },
+  imageUrl:{
+    type: String
   }
 });
 

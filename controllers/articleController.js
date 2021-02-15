@@ -1,10 +1,10 @@
 const Article = require('../models/Article');
 
 module.exports.article_create = async (req, res) => {
-  const {title, body} = req.body;
+  const {title, body, imageUrl} = req.body;
   const user = res.locals.user;
   try{
-    const article = await Article.create({title, body, user});
+    const article = await Article.create({title, body, user, imageUrl});
     res.status(201).json();
   } catch(error){
     console.log(error.message);
